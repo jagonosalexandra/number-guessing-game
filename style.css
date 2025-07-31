@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #386641;
+    font-family: Verdana, Helvetica, sans-serif;
+}
+body {
+    background-color: #f2e8cf;
+}
+.container {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "instructions-panel game-panel";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+}
+.header {
+    grid-area: header;
+    padding: 2rem 1rem 1rem;
+    text-align: center;
+    background-color: #6a994e;
+    border-bottom: 0.15em solid #386641;
+}
+.header h1 {
+    color: #f0f9da;
+}
+.instructions-panel {
+    grid-area: instructions-panel;
+    border-right: 0.15em solid #386641;
+    padding-top: 2.5em;
+    font-size: 1rem;
+}
+.instructions-panel h3 {
+    padding: 1em;
+}
+.instructions-panel ol {
+    padding: 0.5em 1.5em 0.5em 2.5em;
+    text-align: justify;
+}
+.instructions-panel li {
+    margin-bottom: 1em;
+}
+.game-panel {
+    grid-area: game-panel;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+}
+.target-container,
+.guess-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+.target {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input,
+.btn {
+    padding: 0.3rem;
+    margin: 0.3rem;
+    border: 0.1em solid #386641;
+    border-radius: 0.7em;
+    font-size: 1rem;
+}
+.btn {
+    width: 8rem;
+    height: min-content;
+    text-align: center;
+    background-color: #bed784;
+    transition: background-color 0.25s;
+}
+.btn:hover {
+    background-color: #bc4749;
+    color: #f2e8cf;
+}
+.guess-container label {
+    display: block;
+    text-align: center;
+    margin: 1em 0 1.2em;
+}
+.guess-container .btn {
+    display: inline-block;
+}
+#guessResult {
+    width: 100%;
+}
+
+@media (max-width: 760px) {
+    .container {
+        grid-template-areas: 
+            "header"
+            "instructions-panel"
+            "game-panel";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+    }
+    .instructions-panel {
+        border-right: none;
+        margin-bottom: 1rem;
+    }
+    .instructions-panel,
+    .target-container,
+    .guess-container {
+        padding: 1rem 2rem;
+        margin: 0;
+    }
+    .target,
+    .guess-container .input,
+    .btn {
+        width: 14.2rem;
+        border-radius: 0.7em;
+        font-size: 1rem;
+        margin: 0.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    * {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header"><h1>Guess the Number</h1></div>
+        <div class="instructions-panel">
+            <h3>How to Play</h3>
+            <ol>
+                <li>Enter your desired minimum and maximum numbers, then press Set Target.</li>
+                <li>Type your guess into the Guess Number field.</li>
+                <li>Click the Guess button to check your answer.</li>
+                <li>The game will tell you if your guess was too high or too low.</li>
+                <li>Adjust your guess and try again.</li>
+                <li>The app will announce when you are correct and display your total number of guesses.</li>
+            </ol>
+        </div>
+        <div class="game-panel">
+            <div class="target-container">
+                <div class="target">
+                    <input type="number" value="1" class="input" id="min">
+                    <label for="min">min</label>
+                </div>
+                <div class="target">
+                    <input type="number" value="100" class="input" id="max">
+                    <label for="max">max</label>
+                </div>
+                <div class="btn" id="generateBtn">Set Target</div>
+            </div>
+            <div class="guess-container">
+                <label for="guessNum" id="guessResult">Enter your guess</label>
+                <input type="number"class="input" id="guessNum">
+                <div class="btn" id="guessBtn">Guess</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    
+</body>
+</html>
