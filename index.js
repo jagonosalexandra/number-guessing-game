@@ -4,41 +4,35 @@ const guessResult = document.getElementById("guessResult");
 
 let min = Number(document.getElementById("min").value);
 let max = Number(document.getElementById("max").value);
-let randomNum = generateRandomNum(min, max);
-let attempt = 1;
+let target = generateTargetNum(min, max);
+let attempt = 0;
 
-function generateRandomNum(min, max) {
+function generateTargetNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 generateBtn.onclick = function(){
     min = Number(document.getElementById("min").value);
     max = Number(document.getElementById("max").value);
-    randomNum = generateRandomNum(min, max);
+    target = generateTargetNum(min, max);
     guessResult.innerHTML = `A new number has been set. <br> Enter your guess`;
-    attempt = 1;
+    attempt = 0;
 }
 
 guessBtn.onclick = function(){
-    const guessNum = Number(document.getElementById("guessNum").value);
+    const guess = Number(document.getElementById("guess").value);
 
-    if (guessNum < min || guessNum > max) {
+    if (guess < min || guess > max) {
         guessResult.textContent = `Guess must be between ${min} and ${max}.`;
-        attempt++;
         return;
-    }
-
-    switch(true){
-        case randomNum > guessNum:
-            guessResult.textContent = `The number is greater than ${guessNum}.`;
-            attempt++;
-            break;
-        case randomNum < guessNum:
-            guessResult.textContent = `The number is lesser than ${guessNum}.`;
-            attempt++;
-            break;
-        case randomNum === guessNum:
-            guessResult.innerHTML = `You've guessed it right! The number is ${randomNum}. <br> It took you ${attempt} attempts to guess the number.`;
-            break;
+    } else {
+        attempt++;
+        if (target > guess) {
+            guessResult.textContent = `The number is greater than ${guess}.`;
+        } else if (target < guess) {
+            guessResult.textContent = `The number is lesser than ${guess}.`;
+        } else {
+            guessResult.innerHTML = `You've guessed it right! The number is ${target}. <br> It took you ${attempt} attempts to guess the number.`;
+        }
     }
 }
